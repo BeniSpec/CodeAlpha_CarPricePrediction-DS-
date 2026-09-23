@@ -4,23 +4,28 @@
 This project was completed as part of my Data Science internship at CodeAlpha.
 
 ## Problem Statement
-[Write 1-2 sentences: what you're predicting/analyzing and why it matters]
+Predict car selling prices based on features like brand, horsepower, engine size, mileage, and body type.
 
 ## Dataset
-[Add source/link here + short description of the features]
+205 cars, 25 original features including brand, horsepower, engine size, curb weight, fuel type, body type, and mileage (city/highway mpg). No missing values.
 
 ## Approach
 - Data loading and exploration
-- [Cleaning steps you performed]
-- [Feature engineering steps you performed]
-- Model training ([which models you used])
-- Evaluation ([metrics used, e.g. accuracy, R², confusion matrix])
+- Feature engineering: extracted brand name from full car name (representing brand goodwill), cleaned inconsistent brand spellings
+- One-hot encoded categorical features (fuel type, body type, drive wheel, engine type, etc.)
+- EDA: correlation heatmap, price vs horsepower/mileage scatter plots, average price by brand
+- Trained and compared Linear Regression and Random Forest Regressor
+- Evaluated with R², MAE, and RMSE
 
 ## Results
-- [Key metric]: [X%]
-- Key insight: [1-2 sentences on what you found]
+- Linear Regression: R² = 0.9097, MAE = $1,763.57, RMSE = $2,669.93
+- **Random Forest: R² = 0.9595, MAE = $1,248.12, RMSE = $1,786.98 (best model)**
+- Engine size, curb weight, and horsepower were the strongest price predictors
 
-![chart](images/your_chart.png)
+![Correlation Heatmap](images/correlation_heatmap.png)
+![Price Relationships](images/price_relationships.png)
+![Top Brands by Price](images/top_brands_price.png)
+![Feature Importance](images/feature_importance.png)
 
 ## Tools Used
 Python, pandas, scikit-learn, matplotlib, seaborn
@@ -28,7 +33,7 @@ Python, pandas, scikit-learn, matplotlib, seaborn
 ## How to Run
 1. Clone this repo
 2. Install requirements: `pip install -r requirements.txt`
-3. Open `notebook/` in Jupyter or Google Colab
+3. Open `notebook/car_price_prediction.ipynb` in Jupyter or Google Colab
 4. Run all cells
 
 ## Video Explanation
